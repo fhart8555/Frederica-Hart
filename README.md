@@ -1,12 +1,11 @@
-from web3 import Web3
+from googletrans import Translator
 
-# 连接到以太坊网络
-web3 = Web3(Web3.HTTPProvider('https://mainnet.infura.io/v3/<your-project-id>'))
+# 创建一个翻译器对象
+translator = Translator()
 
-# 打印当前以太坊块号
-print(f"Current Block Number: {web3.eth.block_number}")
+# 翻译一段英文文本为中文
+text = "Hello, World!"
+translated_text = translator.translate(text, dest='zh-cn').text
 
-# 获取最新的区块链数据
-latest_block = web3.eth.get_block('latest')
-print(f"Latest Block Number: {latest_block['number']}")
-print(f"Latest Block Timestamp: {latest_block['timestamp']}")
+# 打印翻译结果
+print(translated_text)
